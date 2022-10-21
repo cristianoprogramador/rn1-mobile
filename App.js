@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Text, View } from "react-native";
 
 import styled from "styled-components/native";
@@ -61,10 +61,12 @@ export default () => {
 
     if (nBill) {
       setTip(nBill * (pct/100))
-    } else {
-      alert('Digite o valor da conta')
-    }
+    } 
   }
+
+  useEffect(() => {
+    calc()
+  },[pct, bill])
 
   return (
     <Page>
